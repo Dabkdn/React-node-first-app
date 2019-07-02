@@ -1,18 +1,17 @@
-const mongoose = require('mongoose')
-const Count = mongoose.model('Count')
+const {countService} = require('../../services')
 
-const addCount = async (req, res) => {
+const addCount = (req, res) => {
     try {
-        Count.insertMany(req.body)
+        countService.addCount(req.body)
         res.sendStatus(200)
     }
     catch(err) {
         res.render('error')
     }
 }
-const getCounts = async (req, res) => {
+const getCounts = (req, res) => {
     try {
-        Count.find({}).then(result=> {
+        countService.getCounts().then(result => {
             res.json(result)
         })
     }
@@ -22,7 +21,7 @@ const getCounts = async (req, res) => {
 }
 const updateCount = (req, res) => {
     try {
-        Count.update({_id: req.body.id}, {value: req.body.value})
+        countService.updateCount(req.body.id, req.body.value)
         .then(result=> {
             res.json(result)
         })
@@ -33,7 +32,7 @@ const updateCount = (req, res) => {
 }
 const deleteCount = (req, res) => {
     try {
-        Count.remove({_id: {$in: req.body}}).then(result => {
+        countService.deleteCount(req.body).then(result => {
             res.json(result)
         })
     }
@@ -43,7 +42,7 @@ const deleteCount = (req, res) => {
 }
 const getCount = (req, res) => {
     try {
-        Count.findOne({_id: req.query.id}).then(result => {
+        countService.getCount(req.query.id).then(result => {
             res.json(result)
         })
     }

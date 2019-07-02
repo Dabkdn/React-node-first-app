@@ -1,3 +1,4 @@
 module.exports = {
-    counts: require('./counts')
+    counts: require('./counts'),
+    users: require('./users')
 }

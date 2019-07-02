@@ -9,7 +9,9 @@ const app = express()
 const http = require('http').Server(app);
 const { apiRouter } = require('./routes')
 const cors = require("cors");
+const session = require('express-session')
 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 86400000 }}))
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 }
