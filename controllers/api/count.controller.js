@@ -2,7 +2,7 @@ const {countService} = require('../../services')
 
 const addCount = (req, res) => {
     try {
-        countService.addCount(req.body)
+        countService.add(req.body)
         res.sendStatus(200)
     }
     catch(err) {
@@ -11,7 +11,7 @@ const addCount = (req, res) => {
 }
 const getCounts = (req, res) => {
     try {
-        countService.getCounts().then(result => {
+        countService.getAll().then(result => {
             res.json(result)
         })
     }
@@ -21,7 +21,7 @@ const getCounts = (req, res) => {
 }
 const updateCount = (req, res) => {
     try {
-        countService.updateCount(req.body.id, req.body.value)
+        countService.update(req.body.id, req.body.value)
         .then(result=> {
             res.json(result)
         })
@@ -32,7 +32,7 @@ const updateCount = (req, res) => {
 }
 const deleteCount = (req, res) => {
     try {
-        countService.deleteCount(req.body).then(result => {
+        countService.remove(req.body).then(result => {
             res.json(result)
         })
     }
@@ -42,7 +42,7 @@ const deleteCount = (req, res) => {
 }
 const getCount = (req, res) => {
     try {
-        countService.getCount(req.query.id).then(result => {
+        countService.get(req.query.id).then(result => {
             res.json(result)
         })
     }

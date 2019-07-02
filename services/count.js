@@ -1,26 +1,26 @@
 const mongoose = require('mongoose')
 const Count = mongoose.model('Count')
 
-const addCount = (data) => {
+const add = (data) => {
     return Count.insertMany(data)
 }
-const getCounts = () => {
+const getAll = () => {
     return Count.find({})
 }
-const updateCount = (id, value) => {
+const update = (id, value) => {
     return Count.update({_id: id}, {value: value})
 }
-const deleteCount = (data) => {
+const remove = (data) => {
     return Count.remove({_id: {$in: data}})
 }
-const getCount = (id) => {
+const get = (id) => {
     return Count.findOne({_id: id})
 }
 
 module.exports = {
-    addCount,
-    getCounts,
-    updateCount,
-    deleteCount,
-    getCount
+    add,
+    getAll,
+    update,
+    remove,
+    get
 }
