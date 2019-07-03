@@ -21,7 +21,7 @@ const getCounts = (req, res) => {
 }
 const updateCount = (req, res) => {
     try {
-        countService.update(req.body.id, req.body.value)
+        countService.update(req.body)
         .then(result=> {
             res.json(result)
         })
