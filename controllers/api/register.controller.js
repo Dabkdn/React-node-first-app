@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const bcrypt = require('bcrypt');
-const constants = require('../../constants')
+const constants = require('@constants')
 
 const User = mongoose.model('User')
 

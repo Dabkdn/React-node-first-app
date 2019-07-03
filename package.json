@@ -34,7 +34,13 @@
   "_moduleAliases": {
     "@root": ".",
     "@deep": "src/some/very/deep/directory/or/file",
-    "@my_module": "lib/some-file.js"
+    "@my_module": "lib/some-file.js",
+    "@constants": "constants",
+    "@middlewares": "middlewares",
+    "@models": "models",
+    "@routes": "routes",
+    "@services": "services",
+    "@config": "config"
   },
   "_moduleDirectories": [
     "node_modules_custom"

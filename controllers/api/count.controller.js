@@ -1,4 +1,4 @@
-const {countService} = require('../../services')
+const {countService} = require('@services')
 
 const addCount = (req, res) => {
     try {

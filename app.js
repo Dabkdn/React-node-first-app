@@ -1,6 +1,7 @@
 //packages
+require('module-alias/register')
 require('dotenv').config()
-require('./models')
+require('@models')
 const express = require("express")
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
